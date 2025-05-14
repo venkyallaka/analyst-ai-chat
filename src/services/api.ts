@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 import { QueryResult } from '../types/analyst';
-import { getMockResponse } from './mockService';
+import { mockApiResponse } from './mockService';
 
 const isDev = import.meta.env.DEV;
 
@@ -16,7 +16,7 @@ export const askQuestion = async (question: string): Promise<QueryResult> => {
   try {
     // Use mock service in development mode
     if (isDev) {
-      return await getMockResponse(question);
+      return await mockApiResponse(question);
     }
     
     // In production, use actual API
